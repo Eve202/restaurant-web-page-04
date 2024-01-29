@@ -1,10 +1,10 @@
-/*13h20min */
-/*Mont serra regular/Bold */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 /*----------------Common Property----------------*/
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
     font-size: 16px;
     scroll-behavior: smooth;
 }
@@ -212,8 +212,11 @@ nav ul li {
     text-decoration: none;
     color: white;
     font-size: 1.2em;
+    transition: all 0.5s ease;
 }
-
+.navLink:hover{
+    color: var(--yellow);
+}
 header figure:first-child {
     width: 120px;
 }
@@ -223,19 +226,18 @@ header .uil-bars {
 }
 
 header .uil-search,
-header .search-box .uil-times {
+ .search-box .uil-times {
     font-size: 20px;
     color: white;
     cursor: pointer;
 }
 
-header .search-box {
+.search-box {
     position: absolute;
+    top: 80px;
     right: 8%;
     height: 40px;
-    line-height: 76px;
-    max-width: 268px;
-    width: 25%;
+    width: 280px;
     background-color: white;
     border-radius: 20px;
     display: flex;
@@ -245,13 +247,11 @@ header .search-box {
     padding-inline: 8px;
     column-gap: 12px;
     opacity: 0;
-    pointer-events: none;
     transition: all 0.2s linear;
 }
 
-header.openSearch .search-box {
+.search-box.openSearch  {
     opacity: 1;
-    pointer-events: none;
 }
 
 header .search-box .uil-times {
@@ -733,10 +733,6 @@ footer div.flex_column ul li {
         margin-top: 16px;
     }
 
-    header .search-box {
-        margin-top: 18px;
-    }
-
     header.openSearch .search-box {
         max-width: 400px;
         width: 40%;
@@ -823,8 +819,14 @@ footer div.flex_column ul li {
 }
 
 @media (max-width : 600px) {
-    header .search-box{
-        width: 30%;
+    h1{
+        font-size: 3rem;
+        text-align: center;
+    }
+    
+    p{
+        font-size: 1rem !important;
+        width: 90% !important;
     }
     .shape_yellow figure:nth-of-type(6) {
         right: 7%;
@@ -851,7 +853,9 @@ footer div.flex_column ul li {
     #contact form {
         width: 84%;
     }
-
+    #contact form input{
+        font-size: 1rem;
+    }
     #promo1 .shape_blue figure:nth-of-type(3),
     #promo2 .shape_blue figure:nth-of-type(3) {
         top: 5%;
@@ -967,7 +971,12 @@ footer div.flex_column ul li {
     h3 {
         font-size: 3em;
     }
-
+    .search-box{
+        right: 0;
+        left: 0;
+        width: 260px;
+        margin-inline: auto;
+    }
     #menu p:nth-child(2),
     #menu div.flex_column p {
         width: 94%;

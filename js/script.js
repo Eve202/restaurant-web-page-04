@@ -1,8 +1,21 @@
-const header = document.querySelector("header");
+const searchBox = document.querySelector(".search-box");
 const searchIcon = document.getElementById("searchIcon");
 const deleteBoxSearch = document.getElementById("closeSearchBox");
 const openCloseBtn = document.getElementById("openCloseBtn");
 const nav = document.querySelector("nav");
+const navlink = document.querySelectorAll('.navLink');
+const btn_properties = document.querySelector('.btn_properties');
+
+
+
+navlink.forEach(link =>  link.addEventListener('click',activeLink));
+
+function activeLink() {
+  navlink.forEach(link =>  link.style.color = 'white');
+  this.style.color = '#ffd17e';
+  navDisplay();
+}
+
 
 let swiperCards = new Swiper('.slide-content', {
   // Optional parameters
@@ -35,7 +48,7 @@ let swiperCards = new Swiper('.slide-content', {
   },
 });
 
-const btn_properties = document.querySelector('.btn_properties');
+
 btn_properties.onmousemove = function (e) {
     const x = e.pageX - btn_properties.offsetLeft;
     const y = e.pageY - btn_properties.offsetTop;
@@ -62,22 +75,22 @@ statisticsValue.forEach((statisticValue) => {
 
 
 searchIcon.addEventListener("click", ()=>{
-    header.classList.toggle("openSearch");
+    searchBox.classList.toggle("openSearch");
 });
 
 deleteBoxSearch.addEventListener("click", ()=>{
-    header.classList.remove("openSearch");
+    searchBox.classList.remove("openSearch");
 });
 
 
-openCloseBtn.addEventListener("click", ()=>{
-    if (nav.classList.contains("closeUl")) {
-        nav.classList.replace("closeUl","openUl");
-        openCloseBtn.classList.replace("uil-bars","uil-times");
-    } else if (nav.classList.contains("openUl")) {
-        nav.classList.replace("openUl","closeUl");
-        openCloseBtn.classList.replace("uil-times","uil-bars");
-    }
-});
-
+openCloseBtn.addEventListener("click", navDisplay);
+function navDisplay () {
+  if (nav.classList.contains("closeUl")) {
+      nav.classList.replace("closeUl","openUl");
+      openCloseBtn.classList.replace("uil-bars","uil-times");
+  } else if (nav.classList.contains("openUl")) {
+      nav.classList.replace("openUl","closeUl");
+      openCloseBtn.classList.replace("uil-times","uil-bars");
+  }
+}
 
